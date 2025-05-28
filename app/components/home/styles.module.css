@@ -1,0 +1,107 @@
+/* HEADER START */
+.header_wrapper{
+    display: flex;    
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+    position: relative;
+}
+@keyframes flicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+      opacity: 1;
+      text-shadow:
+        0 0 5px #fff,
+        0 0 10px #fff,
+        0 0 20px var(--secondColor),
+        0 0 30px var(--secondColor),
+        0 0 40px var(--secondColor),
+        0 0 50px var(--secondColor),
+        0 0 60px var(--secondColor);
+    }
+    20%, 24%, 55% {
+      opacity: 0.4;
+      text-shadow: none;
+    }
+  }
+
+.header_wrapper .header_tag h5{
+    font-family: "WDXL Lubrifont TC", sans-serif;
+    font-size: 48px;
+    font-weight: bold;
+    color: #fff;
+    animation: flicker 2s infinite;
+}
+  
+.header_wrapper .header_links ul{
+    display: flex;
+    list-style-type: none;  
+    gap: 40px;
+}
+.header_wrapper .header_links ul a{
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+}
+.hero_wrapper::before{
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    background-color: #000000d5;
+}
+.hero_wrapper{
+    background-image: url("/images/hero.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    min-height: 500px;
+    padding: 0px 0px 20px 0px;
+}
+.image_wrapper{
+    width: 100%;
+    aspect-ratio: 2/1;
+    position: relative;
+}
+.hero_content{
+    display: flex;
+    z-index: 99;
+    position: relative;
+    align-items: center;
+    gap: 10px;
+}
+.hero_body{
+    width: 340px;
+}
+.hero_body h1{
+    font-size: 43px;
+    color: #fff;
+}
+.hero_body p{
+    font-size: 20px;
+    color: #fff;
+}
+.swiper_container{
+    width: 50vw;
+}
+.swiper_navigation_wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 300px;
+    margin: auto;
+    margin-top: 50px;
+}
+.swiper_navigation_wrapper img{
+    cursor: pointer;
+}
+.swiper_navigation_wrapper .swiper_prev{
+    transform: rotate(180deg);
+}
+.swiper_navigation_wrapper .hr{
+    width: 200px;
+    border-top: 1px dashed #fff;
+}
+/* HEADER END   */
