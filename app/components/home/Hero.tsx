@@ -1,7 +1,19 @@
+
+import { lazy, Suspense } from "react"
 import Header from "./Header"
 import styles from "./styles.module.css"
 import SwiperHero from "./Swiper"
-function Hero() {
+
+async function fetchData() {
+  const res = await fetch("http://localhost:3000/api/countries" , 
+    {next:{revalidate:3600}})
+  if (!res.ok) return
+  const data = await res.json()
+  return data
+}
+
+async function Hero() {
+   const countries =await fetchData()
   return (
     <div className={styles.hero_wrapper}>
       <Header />
@@ -13,7 +25,8 @@ function Hero() {
 
           </p>
         </div>
-        <SwiperHero />
+
+          <SwiperHero countries={countries}/>
       </div>
     </div>
   )

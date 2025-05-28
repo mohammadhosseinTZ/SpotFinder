@@ -5,26 +5,21 @@ import 'swiper/css';
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from "./styles.module.css"
-import { useEffect, useLayoutEffect, useState } from 'react';
 import { Navigation } from 'swiper/modules';
+import { useEffect, useState } from 'react';
 
 
 interface TCountry {
     "country": string;
     "address": string
 }
-export default function SwiperHero() {
-    const [countries, setCountries] = useState<TCountry[]>([])
+export default function SwiperHero({ countries }: { countries: TCountry[] | [] }) {
+    const [mounted, setMounted] = useState(false);
     useEffect(() => {
-        const fetchCountry = async () => {
-            const res = await fetch("http://localhost:3000/api/countries")
-            if (!res.ok) return
-            const data = await res.json()
-            setCountries(data)
-        }
-        fetchCountry()
 
-    }, [])
+        setMounted(true);
+    }, []);
+    if (!mounted) return null;
     return (
         <div className={styles.swiper_container}>
             <Swiper
@@ -51,7 +46,7 @@ export default function SwiperHero() {
                 }}
             >
 
-                {countries && countries?.map((country, i) => (
+                {countries && countries?.map((country: TCountry, i: number) => (
                     <SwiperSlide key={i}>
                         <Link href={"/countries/" + country.country} >
                             <div className={styles.image_wrapper}>
