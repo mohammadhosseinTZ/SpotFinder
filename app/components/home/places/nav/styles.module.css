@@ -1,0 +1,28 @@
+.search{
+    border-bottom: 1px solid #00000039;
+    padding-bottom: 10px;
+}
+
+.search input{
+    padding: 4px;
+    width: 100%;
+    box-sizing: border-box;
+}
+.checkbox_wrapper h3 , .continent_wrapper h3{
+    margin: 10px 0px;
+    width: 100%;
+    box-sizing: border-box;
+}
+.checkbox_wrapper , .continent_wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border-bottom: 1px solid #00000039;
+    padding-bottom: 10px;
+}
+.continent_wrapper{
+    border: none;
+}
+.checkbox{
+    width: calc(100%/2 - 5px);
+}

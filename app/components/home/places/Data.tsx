@@ -12,7 +12,6 @@ interface TPlace {
     "description": string
 }
 function Data({ data }: { data: TPlace[] }) {
-    console.log(data);
 
 const toArray = async function (str:string){
     const to_array:string[] =JSON.parse(str.replace(/'/g, '"'))
@@ -25,7 +24,7 @@ const toArray = async function (str:string){
                 <div key={i} className={styles.item_wrapper}>
                     <div className={styles.image_wrapper}>
                         <Link href={"/places/" + place._id}>
-                            <Image src={place.image} alt={place.title} layout='fill'  loading="lazy"/>
+                            <Image src={place.image} alt={place.title} fill  loading="lazy"/>
                         </Link>
                         <p className={styles.details}>
                             {place.continent} - {place.country}

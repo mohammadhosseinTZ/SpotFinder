@@ -7,9 +7,9 @@ const fetchData = async()=>{
 }
 
 async function Places_noLimit() {
+
     const no_limit =await fetchData()
-    console.log(no_limit);
-    
+
   return (
     <Data data={no_limit}/>
   

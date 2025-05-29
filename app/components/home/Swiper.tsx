@@ -50,7 +50,7 @@ export default function SwiperHero({ countries }: { countries: TCountry[] | [] }
                     <SwiperSlide key={i}>
                         <Link href={"/countries/" + country.country} >
                             <div className={styles.image_wrapper}>
-                                <Image src={country.address} alt={country.country} layout='fill' objectFit="cover" />
+                                <Image src={country.address} alt={country.country} fill objectFit="cover" />
                             </div>
                         </Link>
                     </SwiperSlide>
