@@ -5,7 +5,7 @@ import { NextResponse } from "next/server";
 export const GET = async () => {
     try {
         await connect();
-        const places = await Place.find()
+        const places =await Place.find().skip(3);
         return new NextResponse(JSON.stringify(places ), { status: 200 })
     } catch (error: any) {
         return new NextResponse("Error in fetching places" + error.message, {

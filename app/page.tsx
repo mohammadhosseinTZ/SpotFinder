@@ -1,10 +1,10 @@
-import { Hero } from "./components"
+import { Hero, Places } from "./components"
 
 function HOME() {
   return (
     <div>
       <Hero/>
-      HOME
+      <Places/>
     </div>
   )
 }
