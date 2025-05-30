@@ -10,6 +10,7 @@ import { useEffect, useState } from 'react';
 
 
 interface TCountry {
+    "_id":string
     "country": string;
     "address": string
 }
@@ -48,7 +49,7 @@ export default function SwiperHero({ countries }: { countries: TCountry[] | [] }
 
                 {countries && countries?.map((country: TCountry, i: number) => (
                     <SwiperSlide key={i}>
-                        <Link href={"/countries/" + country.country} >
+                        <Link href={`/countries/${country._id}/${country.country}` } >
                             <div className={styles.image_wrapper}>
                                 <Image src={country.address} alt={country.country} fill objectFit="cover" />
                             </div>
