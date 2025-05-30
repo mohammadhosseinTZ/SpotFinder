@@ -1,15 +1,26 @@
 import Data from "./Data"
 
-const fetchData = async()=>{
-    const res = await fetch("http://localhost:3000/api/places/limit" , {cache:"no-store"})
-    if(!res.ok)return
-    return await res.json()
-}
+async function Places_limit({ keywords , check ,continent }: { keywords: string , check:string[] , continent:string[] }) {
+    if(keywords == undefined) keywords = ''
 
-async function Places_limit() {
-    const limit =await fetchData()
+    const params = new URLSearchParams();
+    params.set('keywords', keywords);
+    check.forEach(val => params.append('checked', val));
+    continent.forEach(val => params.append('continent', val));
+    
+
+  const fetchData = async () => {
+    const res = await fetch(`http://localhost:3000/api/places/limit?${params.toString()}`, { cache: "no-store" })
+    if (!res.ok) return
+    return await res.json()
+  }
+  const limit = await fetchData()
+
+  
   return (
-    <Data data={limit}/>
+
+    <Data data={limit} />
+
   )
 }
 

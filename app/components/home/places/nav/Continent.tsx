@@ -1,3 +1,4 @@
+import ContinentItem from "./ContinentItem"
 import styles from "./styles.module.css"
 const fetchData = async ()=>{
     const res = await fetch("http://localhost:3000/api/places" , {cache:"no-store"})
@@ -16,10 +17,7 @@ async function Continent() {
           <h3>Continents</h3>
         {   continents &&
            continents?.map((continent:string , i:number) => (
-            <div className={styles.continent} key={i}>
-                <input type="checkbox" />
-                <label htmlFor="">{continent}</label>
-            </div>
+              <ContinentItem continent={continent} i={i} key={i}/>
            )) 
         }
     </div>

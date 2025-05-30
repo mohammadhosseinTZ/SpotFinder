@@ -21,7 +21,7 @@ const toArray = async function (str:string){
     return (
         <div className={styles.item_container}>
             {data && data?.map((place: TPlace, i: number) => (
-                <div key={i} className={styles.item_wrapper}>
+                <div key={i} className={`item_wrapper ${styles.item_wrapper}`}>
                     <div className={styles.image_wrapper}>
                         <Link href={"/places/" + place._id}>
                             <Image src={place.image} alt={place.title} fill  loading="lazy"/>

@@ -76,4 +76,45 @@
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     padding: 10px;
     min-width: 250px;
+    max-width: 250px;
+    margin-left: auto;
+}
+.search_result{
+    background-color: var(--text);
+    color: #fff;
+    height: fit-content;
+    padding: 10px;
+}
+.img_result{
+    top: 75px !important;
+}
+.banner{
+    background-color: var(--text);
+    margin-bottom: 10px;
+}
+@keyframes flicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+      opacity: 1;
+      text-shadow:
+        0 0 5px #fff,
+        0 0 10px #fff,
+        0 0 20px var(--secondColor),
+        0 0 30px var(--secondColor),
+        0 0 40px var(--secondColor),
+        0 0 50px var(--secondColor),
+        0 0 60px var(--secondColor);
+    }
+    20%, 24%, 55% {
+      opacity: 0.4;
+      text-shadow: none;
+    }
+  }
+
+.banner P{
+    font-family: "WDXL Lubrifont TC", sans-serif;
+    font-size: 48px;
+    font-weight: bold;
+    color: #fff;
+    animation: flicker 2s infinite;
+    text-align: center;
 }

@@ -17,3 +17,12 @@ body{
     margin-left: auto;
     margin-right: auto;
 }
+.place_wrapper:has(.item_wrapper) .img_result{
+  display: none;
+}
+.place_wrapper:has(:not(.item_wrapper)){
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
