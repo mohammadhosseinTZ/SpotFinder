@@ -26,3 +26,8 @@
 .checkbox{
     width: calc(100%/2 - 5px);
 }
+@media screen and (max-width:992px) {
+    .checkbox{
+        width: calc(100%/3 - 5px);
+    }
+}

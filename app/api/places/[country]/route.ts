@@ -1,6 +1,6 @@
 import connect from "@/lib/db"
 import Place from "@/lib/modals/place"
-import { NextResponse } from "next/server"
+import { NextRequest, NextResponse } from "next/server"
 interface TPlaces{
     _id:string
     title:string
@@ -9,7 +9,7 @@ interface TPlaces{
     description:string
 }
 export const GET = async (
-    request:Request ,
+    request: NextRequest,
     context:{params:{country:string}}
 )=>{
     await connect()

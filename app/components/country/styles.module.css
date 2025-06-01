@@ -77,3 +77,16 @@
     padding: 0px 5px;
     margin-right: 5px;
 }
+@media screen and (max-width:992px) {
+    .img_wrapper h5{
+        font-size: 29px;
+        top: 30px;
+    }
+    .hero_wrapper{
+        min-height: 500px;
+    }
+    .places_container{
+        min-width:90vw ;
+        overflow: auto;
+    }
+}

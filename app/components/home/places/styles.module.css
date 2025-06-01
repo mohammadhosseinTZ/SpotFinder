@@ -119,3 +119,28 @@
     animation: flicker 2s infinite;
     text-align: center;
 }
+@media screen and (max-width:992px) {
+    .home_places_container{
+        flex-direction: column-reverse;
+    }
+    .home_places_container nav{
+       
+     margin: 0px;
+     max-width: unset;
+    }
+    .item_wrapper{
+        width: calc(100%/2 - 5px);
+    }
+    .title h3 , .details , .description{
+        font-size: 14px;
+    }
+    .tags span{
+        padding: 2px;
+    }
+    .title h3{
+        padding: 10px;
+    }
+    .banner P{
+        font-size: 29px;
+    }
+}

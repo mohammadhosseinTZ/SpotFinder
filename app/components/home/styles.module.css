@@ -105,3 +105,20 @@
     border-top: 1px dashed #fff;
 }
 /* HEADER END   */
+@media screen and (max-width:992px) {
+    .header_links{
+        display: none;
+    }
+    .hero_content{
+        flex-direction: column;
+    }
+    .header_tag h5{
+        margin: 5px 0px;
+    }
+    .hero_body{
+        width: 100%;
+    }
+    .swiper_container{
+        width: 70vw;
+    }
+}

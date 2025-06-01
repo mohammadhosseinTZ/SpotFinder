@@ -1,16 +1,20 @@
 import { Hero, Places } from "./components"
-
-async function HOME({ searchParams }: {
-  searchParams: { [key: string]: string | string[] | undefined };
-}) {
-  const continent = searchParams.continent
+interface Props {
+  searchParams?: {
+    keywords?: string | string[];
+    checked?: string | string[];
+    continent?: string | string[];
+  };
+}
+async function HOME({ searchParams }: Props) {
+  const continent = searchParams?.continent;
   const continentArray = Array.isArray(continent)
   ? continent
   : continent
   ? [continent]
   : [];
 
-  const checkedRaw = searchParams.checked;
+  const checkedRaw = searchParams?.checked;
   const checkedArray = Array.isArray(checkedRaw)
     ? checkedRaw
     : checkedRaw
@@ -21,7 +25,7 @@ async function HOME({ searchParams }: {
     
     <div>
       <Hero/>
-      <Places keywords={typeof searchParams.keywords === 'string' ? searchParams.keywords : ''}
+      <Places keywords={typeof searchParams?.keywords === 'string' ? searchParams?.keywords : ''}
        check={checkedArray} 
        continent={continentArray}
        />
