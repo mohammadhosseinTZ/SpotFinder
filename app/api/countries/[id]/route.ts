@@ -1,21 +1,30 @@
 import connect from "@/lib/db";
 import Country from "@/lib/modals/country";
 import { Types } from "mongoose";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 export const GET = async (
-    request: Request,
-    context: { params: { id: string } }
-  ) => {
-    const { id } = context.params;
-    
-    await connect()
+  req: NextRequest,
+  { params }: { params: { id: string } }
+) => {
+  await connect();
 
-    if(!id || !Types.ObjectId.isValid(id)){
-      return new NextResponse(JSON.stringify({message:"Invalid Id"}) , {status:400});
-    }
+  const { id } = params;
 
-    const countries = await Country.findById(id)
-    return new NextResponse(JSON.stringify(countries) , {status:200});
-  };
-  
+  if (!id || !Types.ObjectId.isValid(id)) {
+    return new NextResponse(JSON.stringify({ message: "Invalid Id" }), {
+      status: 400,
+    });
+  }
+
+  const country = await Country.findById(id);
+
+  if (!country) {
+    return new NextResponse(
+      JSON.stringify({ message: "Country not found" }),
+      { status: 404 }
+    );
+  }
+
+  return new NextResponse(JSON.stringify(country), { status: 200 });
+}

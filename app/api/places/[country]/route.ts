@@ -10,12 +10,12 @@ interface TPlaces{
 }
 export const GET = async (
     request:Request ,
-    params:{params:{country:string}}
+    context:{params:{country:string}}
 )=>{
     await connect()
-
+    const {country} = context.params;
     const data:TPlaces[] = await Place.find()
-    const result = data.filter((el) => el.country == params.params.country)
+    const result = data.filter((el) => el.country == country)
     if(result.length === 0){
         return new NextResponse(JSON.stringify({message:"not found this country"}) , {status:400})
     }
